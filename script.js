@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (availabilitySelector && availabilityCaption) {
                 availabilitySelector.classList.add('availability-selector--error');
                 availabilityCaption.classList.add('form__availability-caption--error');
-                availabilityCaption.textContent = 'Please select at least one available day';
+                availabilityCaption.textContent = 'Please select at least one day you are available.';
             }
             return false;
         };
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const hasPhone = phoneInput.value.trim().length > 0;
             const hasEmail = emailInput.value.trim().length > 0;
-            const message = 'Please enter either a phone number or an email address.';
+            const message = 'Please enter either a phone number or an email address so we can reach you.';
 
             if (!hasPhone && !hasEmail) {
                 phoneInput.setCustomValidity(message);
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Mockup form behavior
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Request Sent!';
+            submitBtn.textContent = "Request Sent! We'll be in touch soon.";
             submitBtn.classList.add('btn--success');
             
             quoteForm.reset();
