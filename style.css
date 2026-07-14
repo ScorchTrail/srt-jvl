@@ -793,7 +793,6 @@ ul {
     .review-card {
         flex: 0 0 100%;
         max-width: 100%;
-        aspect-ratio: 1 / 1;
         scroll-snap-align: center;
         border-radius: 24px;
         margin-inline: auto;
@@ -1066,7 +1065,7 @@ ul {
 .review-card__text {
     font-size: clamp(0.75rem, calc(0.71rem + 0.12vw), 0.875rem);
     line-height: 1.8;
-    flex: 1;
+    flex: 0 1 auto;
 }
 
 @media (max-width: 767px) {
@@ -1091,7 +1090,8 @@ ul {
     .review-card {
         flex: 0 0 100%;
         max-width: 100%;
-        aspect-ratio: 1 / 1;
+        width: 100%;
+        height: auto;
         scroll-snap-align: center;
         border-radius: 24px;
         min-height: 0;
@@ -1194,14 +1194,14 @@ ul {
 .footer {
     background-color: var(--color-brand-primary);
     color: white;
-    padding: 88px 0 56px;
+    padding: clamp(64px, 8vw, 88px) 0 clamp(40px, 6vw, 56px);
 }
 
 .footer__grid {
     display: grid;
-    gap: 48px;
+    gap: clamp(32px, 5vw, 48px);
     grid-template-columns: 1fr;
-    margin-bottom: 56px;
+    margin-bottom: clamp(40px, 6vw, 56px);
 }
 
 @media (min-width: 768px) {
@@ -1263,11 +1263,11 @@ ul {
 .footer__bottom {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: clamp(16px, 4vw, 24px);
     align-items: center;
     justify-content: center;
     border-top: 1px solid var(--color-footer-divider);
-    padding-top: 48px;
+    padding-top: clamp(32px, 5vw, 48px);
     font-size: clamp(0.5rem, calc(0.44rem + 0.2vw), 0.625rem);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -1280,11 +1280,32 @@ ul {
 
 .footer__legal {
     display: flex;
-    gap: 32px;
+    gap: clamp(16px, 4vw, 32px);
 }
 
 .footer__copyright {
     text-align: center;
+}
+
+@media (max-width: 767px) {
+    .footer {
+        padding-top: 56px;
+        padding-bottom: 40px;
+    }
+
+    .footer__grid {
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    .footer__bottom {
+        gap: 12px;
+        padding-top: 24px;
+    }
+
+    .footer__legal {
+        gap: 12px;
+    }
 }
 
 .footer__legal-link {
