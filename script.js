@@ -1,8 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
     const headerOffset = 80;
+    const navbar = document.querySelector('.navbar');
+    const navbarToggle = document.querySelector('.navbar__toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
 
     const mobileCarouselMedia = window.matchMedia('(max-width: 767px)');
     const reduceMotionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const closeMobileMenu = () => {
+        if (!navbar || !navbarToggle || !mobileMenu) return;
+        navbar.classList.remove('navbar--menu-open');
+        navbarToggle.setAttribute('aria-expanded', 'false');
+        navbarToggle.setAttribute('aria-label', 'Open menu');
+        mobileMenu.hidden = true;
+    };
+
+    const openMobileMenu = () => {
+        if (!navbar || !navbarToggle || !mobileMenu) return;
+        navbar.classList.add('navbar--menu-open');
+        navbarToggle.setAttribute('aria-expanded', 'true');
+        navbarToggle.setAttribute('aria-label', 'Close menu');
+        mobileMenu.hidden = false;
+    };
+
+    if (navbarToggle && navbar && mobileMenu) {
+        navbarToggle.addEventListener('click', () => {
+            const isOpen = navbar.classList.contains('navbar--menu-open');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        mobileMenu.addEventListener('click', (event) => {
+            if (event.target.closest('a')) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!navbar.classList.contains('navbar--menu-open')) return;
+            if (navbar.contains(event.target)) return;
+            closeMobileMenu();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+    }
 
     const initAutoSwipeCarousel = (carousel, itemSelector) => {
         const items = Array.from(carousel.querySelectorAll(itemSelector));
