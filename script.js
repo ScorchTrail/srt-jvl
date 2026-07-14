@@ -1,6 +1,157 @@
 document.addEventListener('DOMContentLoaded', () => {
     const headerOffset = 80;
 
+    const mobileCarouselMedia = window.matchMedia('(max-width: 767px)');
+    const reduceMotionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const initAutoSwipeCarousel = (carousel, itemSelector) => {
+        const items = Array.from(carousel.querySelectorAll(itemSelector));
+        if (items.length < 2) return () => {};
+
+        let activeIndex = 0;
+        let timerId = null;
+        let indicators = [];
+
+        const indicatorHost = (() => {
+            const existing = carousel.nextElementSibling;
+            if (existing && existing.classList.contains('carousel-indicators')) return existing;
+
+            const node = document.createElement('div');
+            node.className = 'carousel-indicators';
+            carousel.insertAdjacentElement('afterend', node);
+            return node;
+        })();
+
+        const setActiveIndicator = (index) => {
+            indicators.forEach((dot, dotIndex) => {
+                const isActive = dotIndex === index;
+                dot.classList.toggle('carousel-indicator--active', isActive);
+                dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+            });
+        };
+
+        const buildIndicators = () => {
+            indicatorHost.innerHTML = '';
+            indicators = items.map((_, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'carousel-indicator';
+                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                dot.addEventListener('click', () => {
+                    stopAutoSwipe();
+                    scrollToIndex(index);
+                    startAutoSwipe();
+                });
+                indicatorHost.appendChild(dot);
+                return dot;
+            });
+            setActiveIndicator(activeIndex);
+        };
+
+        const setNearestActiveIndex = () => {
+            const viewportCenter = carousel.scrollLeft + (carousel.clientWidth / 2);
+            let nearestIndex = 0;
+            let minDistance = Number.POSITIVE_INFINITY;
+
+            items.forEach((item, index) => {
+                const itemCenter = item.offsetLeft + (item.clientWidth / 2);
+                const distance = Math.abs(itemCenter - viewportCenter);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    nearestIndex = index;
+                }
+            });
+
+            activeIndex = nearestIndex;
+            setActiveIndicator(activeIndex);
+        };
+
+        const scrollToIndex = (index, behavior = 'smooth') => {
+            const target = items[index];
+            if (!target) return;
+
+            const carouselRect = carousel.getBoundingClientRect();
+            const targetRect = target.getBoundingClientRect();
+            const targetCenter = (targetRect.left - carouselRect.left) + carousel.scrollLeft + (targetRect.width / 2);
+            const targetLeft = targetCenter - (carousel.clientWidth / 2);
+
+            carousel.scrollTo({ left: targetLeft, behavior });
+            activeIndex = index;
+            setActiveIndicator(activeIndex);
+        };
+
+        const stopAutoSwipe = () => {
+            if (!timerId) return;
+            clearInterval(timerId);
+            timerId = null;
+        };
+
+        const startAutoSwipe = () => {
+            if (timerId || reduceMotionMedia.matches || !mobileCarouselMedia.matches) return;
+
+            timerId = setInterval(() => {
+                const nextIndex = (activeIndex + 1) % items.length;
+                scrollToIndex(nextIndex);
+            }, 3600);
+        };
+
+        const handleInteractionStart = () => {
+            setNearestActiveIndex();
+            stopAutoSwipe();
+        };
+
+        const handleInteractionEnd = () => {
+            setNearestActiveIndex();
+            startAutoSwipe();
+        };
+
+        const handleMediaChange = () => {
+            if (mobileCarouselMedia.matches && !reduceMotionMedia.matches) {
+                startAutoSwipe();
+            } else {
+                stopAutoSwipe();
+            }
+        };
+
+        carousel.addEventListener('scroll', setNearestActiveIndex, { passive: true });
+        carousel.addEventListener('pointerdown', handleInteractionStart, { passive: true });
+        carousel.addEventListener('pointerup', handleInteractionEnd, { passive: true });
+        carousel.addEventListener('touchstart', handleInteractionStart, { passive: true });
+        carousel.addEventListener('touchend', handleInteractionEnd, { passive: true });
+        carousel.addEventListener('mouseenter', handleInteractionStart);
+        carousel.addEventListener('mouseleave', handleInteractionEnd);
+        carousel.addEventListener('focusin', handleInteractionStart);
+        carousel.addEventListener('focusout', handleInteractionEnd);
+        mobileCarouselMedia.addEventListener('change', handleMediaChange);
+        reduceMotionMedia.addEventListener('change', handleMediaChange);
+
+        buildIndicators();
+        scrollToIndex(0, 'auto');
+        handleMediaChange();
+
+        return () => {
+            stopAutoSwipe();
+            carousel.removeEventListener('scroll', setNearestActiveIndex);
+            carousel.removeEventListener('pointerdown', handleInteractionStart);
+            carousel.removeEventListener('pointerup', handleInteractionEnd);
+            carousel.removeEventListener('touchstart', handleInteractionStart);
+            carousel.removeEventListener('touchend', handleInteractionEnd);
+            carousel.removeEventListener('mouseenter', handleInteractionStart);
+            carousel.removeEventListener('mouseleave', handleInteractionEnd);
+            carousel.removeEventListener('focusin', handleInteractionStart);
+            carousel.removeEventListener('focusout', handleInteractionEnd);
+            mobileCarouselMedia.removeEventListener('change', handleMediaChange);
+            reduceMotionMedia.removeEventListener('change', handleMediaChange);
+        };
+    };
+
+    document.querySelectorAll('.gallery-grid, .reviews-grid').forEach((carousel) => {
+        const itemSelector = carousel.classList.contains('gallery-grid')
+            ? '.gallery-grid__item'
+            : '.review-card';
+        initAutoSwipeCarousel(carousel, itemSelector);
+    });
+
     // Delegate smooth scroll for internal anchors to avoid many listeners.
     document.addEventListener('click', (e) => {
         const link = e.target.closest('a[href^="#"]');

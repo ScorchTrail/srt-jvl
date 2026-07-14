@@ -95,7 +95,7 @@
                 <div class="services-grid">
                     <!-- Card 1: Routine Maintenance -->
                     <div class="service-card service-card--large">
-                        <div class="placeholder-img service-card__image">Lawn Mowing Image</div>
+                        <img class="service-card__image" alt="Lawn mowing service" src="./assets/img/lawn-maintainance.jpeg">
                         <div class="service-card__content">
                             <h3 class="service-card__title service-card__title--large">Routine Maintenance &amp; Lawn Mowing</h3>
                             <p class="service-card__desc">From weekly lawn mowing and crisp edging to bush trimming and seasonal cleanups. We keep your grass green, your yard tidy, and your HOA happy, so your only job is simply to enjoy it.</p>
@@ -103,27 +103,18 @@
                         </div>
                     </div>
 
-                    <!-- Card 2: Weed Control & Gravel -->
+                    <!-- Card 2: Irrigation Systems -->
                     <div class="service-card">
-                        <div class="placeholder-img placeholder-img--video">Gravel & Desert Yard Image</div>
-                        <div class="service-card__content">
-                            <h3 class="service-card__title">Weed Control &amp; Gravel Replenishment</h3>
-                            <p class="service-card__desc">Desert yards need love, too. We carefully manage pesky weeds and bring in fresh decorative rock and gravel, keeping your desert landscape looking pristine, neat, and beautifully restored.</p>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Irrigation Systems -->
-                    <div class="service-card">
-                        <div class="placeholder-img placeholder-img--video">Irrigation Systems Image</div>
+                        <img class="service-card__image service-card__image--video" alt="Irrigation system service" src="./assets/img/irrigation.jpeg">
                         <div class="service-card__content">
                             <h3 class="service-card__title">Irrigation Systems</h3>
                             <p class="service-card__desc">Smart drip lines, careful leak repairs, and water-saving setups designed to protect your lawn and plants, keeping them thriving even in the peak Arizona heat.</p>
                         </div>
                     </div>
 
-                    <!-- Card 4: Tree & Garden Planting -->
+                    <!-- Card 3: Tree & Garden Planting -->
                     <div class="service-card">
-                        <div class="placeholder-img placeholder-img--video">Tree & Garden Planting Image</div>
+                        <img class="service-card__image service-card__image--video" alt="Tree and garden planting service" src="./assets/img/planting.jpeg">
                         <div class="service-card__content">
                             <h3 class="service-card__title">Tree &amp; Garden Planting</h3>
                             <p class="service-card__desc">Beautiful, desert-friendly trees, vibrant flower beds, and native plants, all planted with care to instantly bring life and joy to your front or backyard.</p>
@@ -150,26 +141,22 @@
                         <label for="phone" class="form__label">Phone Number</label>
                         <input type="tel" id="phone" class="form__input" placeholder="(555) 000-0000">
                     </div>
-                    <div class="form__group">
+                    <div class="form__group form__group--full">
                         <label for="email" class="form__label">Email Address</label>
                         <input type="email" id="email" class="form__input" placeholder="you@example.com">
                     </div>
                     <fieldset class="form__group form__group--full service-options">
                         <legend class="form__label">How Can We Help? (Select all that apply)</legend>
                         <div class="service-options__grid">
-                            <label class="service-options__item">
+                            <label class="service-options__item service-options__item--routine">
                                 <input type="checkbox" name="services" value="Routine Maintenance & Mowing">
                                 <span>Routine Maintenance &amp; Mowing</span>
                             </label>
-                            <label class="service-options__item">
-                                <input type="checkbox" name="services" value="Weed Control & Gravel">
-                                <span>Weed Control &amp; Gravel</span>
-                            </label>
-                            <label class="service-options__item">
+                            <label class="service-options__item service-options__item--irrigation">
                                 <input type="checkbox" name="services" value="Irrigation Systems">
                                 <span>Irrigation Systems</span>
                             </label>
-                            <label class="service-options__item">
+                            <label class="service-options__item service-options__item--planting">
                                 <input type="checkbox" name="services" value="Tree & Garden Planting">
                                 <span>Tree &amp; Garden Planting</span>
                             </label>
@@ -212,12 +199,48 @@
                     <h2 class="section-header__title">Take a peek at some of the lawns and desert yards we've had the joy of caring for.</h2>
                 </div>
                 <div class="gallery-grid">
-                    <div class="placeholder-img gallery-grid__item gallery-grid__item--large">Project 1</div>
-                    <div class="placeholder-img gallery-grid__item gallery-grid__item--wide">Project 2</div>
-                    <div class="placeholder-img gallery-grid__item gallery-grid__item--tall">Project 3</div>
-                    <div class="placeholder-img gallery-grid__item gallery-grid__item--small">Project 4</div>
-                    <div class="placeholder-img gallery-grid__item gallery-grid__item--wide-bottom">Project 5</div>
-                    <div class="placeholder-img gallery-grid__item gallery-grid__item--small">Project 6</div>
+                    <div class="gallery-grid__item gallery-grid__item--large">
+                        <img class="gallery-grid__media" src="./assets/img/project (1).jpeg" alt="Project 1">
+                        <div class="gallery-grid__meta">
+                            <h3 class="gallery-grid__title">Desert Front Yard</h3>
+                            <p class="gallery-grid__caption">A clean xeriscape layout with crisp edges and low-water gravel coverage.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-grid__item gallery-grid__item--wide">
+                        <img class="gallery-grid__media" src="./assets/img/project (2).jpeg" alt="Project 2">
+                        <div class="gallery-grid__meta">
+                            <h3 class="gallery-grid__title">Poolside Refresh</h3>
+                            <p class="gallery-grid__caption">Fresh turf and hardscape upgrades create a bright, open family retreat.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-grid__item gallery-grid__item--tall">
+                        <img class="gallery-grid__media" src="./assets/img/project (3).jpeg" alt="Project 3">
+                        <div class="gallery-grid__meta">
+                            <h3 class="gallery-grid__title">Water Feature Garden</h3>
+                            <p class="gallery-grid__caption">Layered plants and a lit fountain add texture and evening ambiance.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-grid__item gallery-grid__item--small">
+                        <img class="gallery-grid__media" src="./assets/img/project (4).jpeg" alt="Project 4">
+                        <div class="gallery-grid__meta">
+                            <h3 class="gallery-grid__title">Backyard Gravel Care</h3>
+                            <p class="gallery-grid__caption">Replenished stone and tidy borders deliver a polished desert look.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-grid__item gallery-grid__item--wide-bottom">
+                        <img class="gallery-grid__media" src="./assets/img/project (5).jpeg" alt="Project 5">
+                        <div class="gallery-grid__meta">
+                            <h3 class="gallery-grid__title">Patio Lawn Blend</h3>
+                            <p class="gallery-grid__caption">Balanced greenery and gravel keep this yard both lush and easy to maintain.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-grid__item gallery-grid__item--small">
+                        <img class="gallery-grid__media" src="./assets/img/project (6).jpeg" alt="Project 6">
+                        <div class="gallery-grid__meta">
+                            <h3 class="gallery-grid__title">Curved Lawn Design</h3>
+                            <p class="gallery-grid__caption">Soft lawn curves and desert-safe planting shape a welcoming backyard flow.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -300,15 +323,15 @@
                     <ul class="feature-list">
                         <li class="feature-list__item">
                             <div class="placeholder-icon placeholder-icon--circle feature-list__icon"></div>
-                            <span class="feature-list__text">Born and raised in the Valley—we intimately understand our soil, our sun, and our weeds.</span>
+                            <span class="feature-list__text">Born and raised in the Valley,as we understand our soil, our sun, and our weeds.</span>
                         </li>
                         <li class="feature-list__item">
                             <div class="placeholder-icon placeholder-icon--circle feature-list__icon"></div>
-                            <span class="feature-list__text">Bilingual crews who treat your home with the exact same love and respect we'd give our own abuela's yard.</span>
+                            <span class="feature-list__text">Bilingual crews who treat your home with same care and respect as our own</span>
                         </li>
                         <li class="feature-list__item">
                             <div class="placeholder-icon placeholder-icon--circle feature-list__icon"></div>
-                            <span class="feature-list__text">A 2-year plant health guarantee on every new planting, because we treat your yard like our own.</span>
+                            <span class="feature-list__text">Proud of every lawn we mow & every plant we care for</span>
                         </li>
                     </ul>
                 </div>
@@ -331,7 +354,7 @@
                     <ul class="footer__list">
                         <li class="footer__list-item">
                             <div class="placeholder-icon placeholder-icon--box placeholder-icon--small"></div> 
-                            (480) 884-2210
+                            4802339774
                         </li>
                         <li class="footer__list-item">
                             <div class="placeholder-icon placeholder-icon--box placeholder-icon--small"></div> 
@@ -340,10 +363,10 @@
                     </ul>
                 </div>
                 <div class="footer__section">
-                    <h4 class="footer__title">Office</h4>
+                    <h4 class="footer__title">Mailing Address</h4>
                     <div class="footer__address">
                         <div class="placeholder-icon placeholder-icon--box placeholder-icon--small"></div>
-                        <span>7100 E Cave Creek Rd<br>Suite 144<br>Scottsdale, AZ 85253</span>
+                        <span>10105 E Via Linda Ste. 103, Scottsdale, AZ - 85258</span>
                     </div>
                 </div>
             </div>
