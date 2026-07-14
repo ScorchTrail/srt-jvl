@@ -232,6 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const availabilityCaption = quoteForm.querySelector('#availabilityCaption');
         const availabilityHiddenInput = quoteForm.querySelector('#availabilityDays');
         const dayButtons = availabilitySelector ? Array.from(availabilitySelector.querySelectorAll('.availability-selector__day')) : [];
+        const serviceOptionItems = Array.from(quoteForm.querySelectorAll('.service-options__item'));
+        const serviceOptionInputs = Array.from(quoteForm.querySelectorAll('.service-options__item input[type="checkbox"]'));
 
         const formatAvailabilityText = (selectedDayIndexes) => {
             if (selectedDayIndexes.length === 0) {
@@ -339,6 +341,14 @@ document.addEventListener('DOMContentLoaded', () => {
             return true;
         };
 
+        const updateServiceOptionsUI = () => {
+            serviceOptionItems.forEach((item) => {
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                if (!checkbox) return;
+                item.classList.toggle('service-options__item--active', checkbox.checked);
+            });
+        };
+
         dayButtons.forEach((button) => {
             button.addEventListener('click', () => {
                 const isActive = button.classList.toggle('availability-selector__day--active');
@@ -354,6 +364,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (emailInput) emailInput.setCustomValidity('');
                 validateContactRequirement();
             });
+        });
+
+        serviceOptionInputs.forEach((input) => {
+            input.addEventListener('change', updateServiceOptionsUI);
         });
 
         quoteForm.addEventListener('submit', (e) => {
@@ -381,6 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.setAttribute('aria-pressed', 'false');
             });
             updateAvailabilityUI();
+            updateServiceOptionsUI();
             
             setTimeout(() => {
                 submitBtn.textContent = originalText;
@@ -391,5 +406,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nameInput) nameInput.required = true;
         if (addressInput) addressInput.required = true;
         updateAvailabilityUI();
+        updateServiceOptionsUI();
     }
 });
