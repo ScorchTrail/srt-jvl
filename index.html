@@ -3,18 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javier Landscaping</title>
+    <title>Javier Landscaping | Lawn Care & Irrigation in Scottsdale, AZ</title>
+    <meta name="description" content="Javier Landscaping provides trusted lawn maintenance, irrigation systems, and plant care in Scottsdale, AZ. Family-owned for 15 years. Request your free quote today.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#1F2937">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Javier Landscaping">
+    <meta property="og:title" content="Javier Landscaping | Lawn Care & Irrigation in Scottsdale, AZ">
+    <meta property="og:description" content="Family-owned lawn mowing, irrigation, and plant care serving Scottsdale and the East Valley.">
+    <meta property="og:image" content="./assets/img/hero-img.webp">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Javier Landscaping | Lawn Care & Irrigation in Scottsdale, AZ">
+    <meta name="twitter:description" content="Family-owned lawn mowing, irrigation, and plant care serving Scottsdale and the East Valley.">
+    <meta name="twitter:image" content="./assets/img/hero-img.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LawnCare",
+        "name": "Javier Landscaping LLC",
+        "description": "Family-owned lawn mowing, irrigation, and landscape care serving Scottsdale and the East Valley.",
+        "telephone": "+1-480-233-9774",
+        "email": "hello@javierlandscaping.com",
+        "image": "./assets/img/hero-img.webp",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "10105 E Via Linda Ste. 103",
+            "addressLocality": "Scottsdale",
+            "addressRegion": "AZ",
+            "postalCode": "85258",
+            "addressCountry": "US"
+        },
+        "areaServed": ["Scottsdale", "East Valley", "Arizona"],
+        "serviceType": ["Lawn Maintenance", "Irrigation Systems", "Tree and Garden Planting"]
+    }
+    </script>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="navbar__container container">
                 <div class="navbar__brand">
-                <div class="placeholder-icon placeholder-icon--box"></div>
+                <img src="./assets/icons/jvl-logo.svg" alt="Javier Landscaping logo" class="navbar__logo">
                 <span class="navbar__brand-text">Javier Landscaping</span>
             </div>
             <div class="navbar__actions">
@@ -54,7 +88,7 @@
                     </div>
                 </div>
                 <div class="hero__visual">
-                    <img class="hero__image" alt="Luxury Yard" src="./assets/img/hero-img.webp">
+                    <img class="hero__image" alt="Luxury Yard" src="./assets/img/hero-img.webp" fetchpriority="high" decoding="async">
                     
                     <div class="floating-review">
                         <div class="floating-review__score">4.9</div>
@@ -73,27 +107,6 @@
             </div>
         </section>
 
-        <!-- <section class="trust-strip">
-            <div class="container trust-strip__grid">
-                <div class="trust-strip__item">
-                    <div class="placeholder-icon placeholder-icon--box placeholder-icon--outline"></div>
-                    <span class="trust-strip__text">AZ ROC Licensed</span>
-                </div>
-                <div class="trust-strip__item">
-                    <div class="placeholder-icon placeholder-icon--box placeholder-icon--outline"></div>
-                    <span class="trust-strip__text">$2M Insured</span>
-                </div>
-                <div class="trust-strip__item">
-                    <div class="placeholder-icon placeholder-icon--box placeholder-icon--outline"></div>
-                    <span class="trust-strip__text">Same-Week Friendly Visits</span>
-                </div>
-                <div class="trust-strip__item">
-                    <div class="placeholder-icon placeholder-icon--box placeholder-icon--outline"></div>
-                    <span class="trust-strip__text">4.9★ · 480+ Reviews</span>
-                </div>
-            </div>
-        </section> -->
-
         <section id="services" class="section section--padding">
             <div class="container">
                 <div class="section-header section-header--center">
@@ -106,7 +119,7 @@
                 <div class="services-grid">
                     <!-- Card 1: Routine Maintenance -->
                     <div class="service-card service-card--large">
-                        <img class="service-card__image" alt="Lawn mowing service" src="./assets/img/lawn-maintainance.webp">
+                        <img class="service-card__image" alt="Lawn mowing service" src="./assets/img/lawn-maintainance.webp" loading="lazy" decoding="async">
                         <div class="service-card__content">
                             <h3 class="service-card__title service-card__title--large">Routine Maintenance &amp; Lawn Mowing</h3>
                             <p class="service-card__desc">From weekly mowing and crisp edging to bush trimming and seasonal cleanups. We handle the relentless upkeep, shielding your yard from the heat so it stays a barefoot-friendly oasis year-round, keeping your HOA happy and your weekends free.</p>
@@ -116,7 +129,7 @@
 
                     <!-- Card 2: Irrigation Systems -->
                     <div class="service-card">
-                        <img class="service-card__image service-card__image--video" alt="Irrigation system service" src="./assets/img/irrigation.webp">
+                        <img class="service-card__image service-card__image--video" alt="Irrigation system service" src="./assets/img/irrigation.webp" loading="lazy" decoding="async">
                         <div class="service-card__content">
                             <h3 class="service-card__title">Irrigation Systems</h3>
                             <p class="service-card__desc">Smart drip lines, precise leak repairs, and water-saving setups. Water is life in the Valley; we manage your systems to ensure every drop goes exactly where your landscape needs it, keeping plants hydrated through the peak summer heat.</p>
@@ -125,7 +138,7 @@
 
                     <!-- Card 3: Tree & Garden Planting -->
                     <div class="service-card">
-                        <img class="service-card__image service-card__image--video" alt="Tree and garden planting service" src="./assets/img/planting.webp">
+                        <img class="service-card__image service-card__image--video" alt="Tree and garden planting service" src="./assets/img/planting.webp" loading="lazy" decoding="async">
                         <div class="service-card__content">
                             <h3 class="service-card__title">Tree &amp; Garden Planting</h3>
                             <p class="service-card__desc">We expertly plant desert-friendly trees, vibrant flower beds, and native plants suited for our climate, providing the immediate installation and ongoing care they need to establish deep roots and provide lasting shade.</p>
@@ -161,17 +174,17 @@
                         <div class="service-options__grid">
                             <label class="service-options__item service-options__item--routine">
                                 <input class="service-options__control" type="checkbox" name="services" value="Routine Maintenance & Mowing" checked>
-                                <div class="placeholder-icon placeholder-icon--box service-options__icon" aria-hidden="true"></div>
+                                <img class="service-options__icon" src="./assets/icons/grass.svg" alt="" aria-hidden="true">
                                 <span>Routine Maintenance &amp; Mowing</span>
                             </label>
                             <label class="service-options__item service-options__item--irrigation">
                                 <input class="service-options__control" type="checkbox" name="services" value="Irrigation Systems">
-                                <div class="placeholder-icon placeholder-icon--box service-options__icon" aria-hidden="true"></div>
+                                <img class="service-options__icon" src="./assets/icons/sprinkler.svg" alt="" aria-hidden="true">
                                 <span>Irrigation Systems</span>
                             </label>
                             <label class="service-options__item service-options__item--planting">
                                 <input class="service-options__control" type="checkbox" name="services" value="Tree & Garden Planting">
-                                <div class="placeholder-icon placeholder-icon--box service-options__icon" aria-hidden="true"></div>
+                                <img class="service-options__icon" src="./assets/icons/plant-care.svg" alt="" aria-hidden="true">
                                 <span>Tree &amp; Garden Planting</span>
                             </label>
                         </div>
@@ -199,7 +212,7 @@
                         <textarea id="details" rows="4" class="form__textarea" placeholder="Tell us a little about your yard's current condition and what maintenance you're looking for..."></textarea>
                     </div>
                     <div class="form__group form__group--full form__footer">
-                        <button type="submit" class="btn btn--primary btn--block">Send Request</button>
+                        <button type="submit" class="btn btn--primary form__submit-btn">Send Request</button>
                         <p class="form__privacy-note">We treat your privacy like we treat your yard—with absolute respect. Your details are never sold or shared.</p>
                     </div>
                 </form>
@@ -214,42 +227,42 @@
                 </div>
                 <div class="gallery-grid">
                     <div class="gallery-grid__item gallery-grid__item--large">
-                        <img class="gallery-grid__media" src="./assets/img/project (1).webp" alt="Project 1">
+                        <img class="gallery-grid__media" src="./assets/img/project (1).webp" alt="Desert front yard maintenance project" loading="lazy" decoding="async">
                         <div class="gallery-grid__meta">
                             <h3 class="gallery-grid__title">Desert Front Yard</h3>
                             <p class="gallery-grid__caption">Carefully maintained xeriscape with raked, low-water gravel and cleanly pruned native shrubs.</p>
                         </div>
                     </div>
                     <div class="gallery-grid__item gallery-grid__item--wide">
-                        <img class="gallery-grid__media" src="./assets/img/project (2).webp" alt="Project 2">
+                        <img class="gallery-grid__media" src="./assets/img/project (2).webp" alt="Poolside lawn and hardscape care project" loading="lazy" decoding="async">
                         <div class="gallery-grid__meta">
                             <h3 class="gallery-grid__title">Poolside Refresh</h3>
                             <p class="gallery-grid__caption">Routine turf upkeep and clean hardscape borders keep this family pool area pristine and inviting.</p>
                         </div>
                     </div>
                     <div class="gallery-grid__item gallery-grid__item--tall">
-                        <img class="gallery-grid__media" src="./assets/img/project (3).webp" alt="Project 3">
+                        <img class="gallery-grid__media" src="./assets/img/project (3).webp" alt="Water feature garden maintenance project" loading="lazy" decoding="async">
                         <div class="gallery-grid__meta">
                             <h3 class="gallery-grid__title">Water Feature Garden</h3>
                             <p class="gallery-grid__caption">Regular pruning and irrigation checks ensure these layered plants thrive alongside the patio.</p>
                         </div>
                     </div>
                     <div class="gallery-grid__item gallery-grid__item--small">
-                        <img class="gallery-grid__media" src="./assets/img/project (4).webp" alt="Project 4">
+                        <img class="gallery-grid__media" src="./assets/img/project (4).webp" alt="Backyard gravel and border care project" loading="lazy" decoding="async">
                         <div class="gallery-grid__meta">
                             <h3 class="gallery-grid__title">Backyard Gravel Care</h3>
                             <p class="gallery-grid__caption">Replenished stone and meticulously weeded borders for a consistently polished desert aesthetic.</p>
                         </div>
                     </div>
                     <div class="gallery-grid__item gallery-grid__item--wide-bottom">
-                        <img class="gallery-grid__media" src="./assets/img/project (5).webp" alt="Project 5">
+                        <img class="gallery-grid__media" src="./assets/img/project (5).webp" alt="Patio and turf maintenance project" loading="lazy" decoding="async">
                         <div class="gallery-grid__meta">
                             <h3 class="gallery-grid__title">Patio Lawn Blend</h3>
                             <p class="gallery-grid__caption">Consistent mowing and hydration management keep this lawn-to-gravel transition sharp and healthy.</p>
                         </div>
                     </div>
                     <div class="gallery-grid__item gallery-grid__item--small">
-                        <img class="gallery-grid__media" src="./assets/img/project (6).webp" alt="Project 6">
+                        <img class="gallery-grid__media" src="./assets/img/project (6).webp" alt="Curved lawn irrigation and edging project" loading="lazy" decoding="async">
                         <div class="gallery-grid__meta">
                             <h3 class="gallery-grid__title">Curved Lawn Care</h3>
                             <p class="gallery-grid__caption">Dedicated watering and edging preserve the soft curves and lushness of this backyard retreat.</p>
@@ -343,8 +356,8 @@
             <div class="footer__grid">
                 <div class="footer__brand">
                     <div class="footer__brand-header">
-                        <div class="placeholder-icon placeholder-icon--box placeholder-icon--accent"></div>
-                        <span class="footer__brand-text">Javier Landscaping LLC</span>
+                        <img src="./assets/icons/jvl-logo.svg" alt="Javier Landscaping logo" class="footer__logo">
+                        <span class="footer__brand-text">Javier Landscaping</span>
                     </div>
                     <p class="footer__desc">Family-owned lawn mowing and landscape care, proudly keeping Scottsdale and the East Valley green, hydrated, and clean for 15 years.</p>
                 </div>
@@ -352,28 +365,28 @@
                     <h4 class="footer__title">Let's Connect</h4>
                     <ul class="footer__list">
                         <li class="footer__list-item">
-                            <div class="placeholder-icon placeholder-icon--box placeholder-icon--small"></div> 
-                            4802339774
+                            <img src="./assets/icons/phone.svg" alt="" aria-hidden="true" class="footer__contact-icon">
+                            <a href="tel:+14802339774" aria-label="Call Javier Landscaping at 480 233 9774">(480) 233-9774</a>
                         </li>
                         <li class="footer__list-item">
-                            <div class="placeholder-icon placeholder-icon--box placeholder-icon--small"></div> 
-                            hello@javierlandscaping.com
+                            <img src="./assets/icons/envelope.svg" alt="" aria-hidden="true" class="footer__contact-icon">
+                            <a href="mailto:hello@javierlandscaping.com" aria-label="Email Javier Landscaping">hello@javierlandscaping.com</a>
                         </li>
                     </ul>
                 </div>
                 <div class="footer__section">
                     <h4 class="footer__title">Mailing Address</h4>
-                    <div class="footer__address">
-                        <div class="placeholder-icon placeholder-icon--box placeholder-icon--small"></div>
+                    <address class="footer__address">
+                        <img src="./assets/icons/marker.svg" alt="" aria-hidden="true" class="footer__contact-icon">
                         <span>10105 E Via Linda Ste. 103, Scottsdale, AZ - 85258</span>
-                    </div>
+                    </address>
                 </div>
             </div>
             <div class="footer__bottom">
                 <p class="footer__copyright">© 2026 Javier Landscaping LLC · Scottsdale, AZ</p>
                 <div class="footer__legal">
                     <a href="#" class="footer__legal-link" aria-label="Privacy">
-                        <div class="placeholder-icon placeholder-icon--box footer__legal-icon"></div>
+                        <img src="./assets/icons/srttrail-logo.svg" alt="SRT Trail logo" class="footer__legal-icon">
                     </a>
                 </div>
             </div>

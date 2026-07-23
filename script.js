@@ -200,6 +200,55 @@ document.addEventListener('DOMContentLoaded', () => {
         initAutoSwipeCarousel(carousel, itemSelector);
     });
 
+    const initScrollReveal = () => {
+        const revealTargets = [];
+
+        const addRevealTargets = (selector, direction = 'up', stagger = 70) => {
+            const nodes = Array.from(document.querySelectorAll(selector));
+            nodes.forEach((node, index) => {
+                node.classList.add('reveal-on-scroll', `reveal--from-${direction}`);
+                const delay = Math.min(index * stagger, 260);
+                node.style.setProperty('--reveal-delay', `${delay}ms`);
+                revealTargets.push(node);
+            });
+        };
+
+        addRevealTargets('.hero__content', 'left', 0);
+        addRevealTargets('.hero__visual', 'right', 0);
+        addRevealTargets('#services .section-header', 'up', 0);
+        addRevealTargets('.service-card', 'up', 80);
+        addRevealTargets('#quote .section-header', 'up', 0);
+        addRevealTargets('#quote .form', 'up', 0);
+        addRevealTargets('#gallery .section-header', 'up', 0);
+        addRevealTargets('.gallery-grid__item', 'up', 65);
+        addRevealTargets('#reviews .section-header', 'up', 0);
+        addRevealTargets('.review-card', 'up', 65);
+        addRevealTargets('.about-grid > *', 'up', 80);
+        addRevealTargets('.footer__grid > *', 'up', 80);
+        addRevealTargets('.footer__bottom', 'up', 0);
+
+        if (reduceMotionMedia.matches || typeof IntersectionObserver === 'undefined') {
+            revealTargets.forEach((target) => target.classList.add('is-visible'));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, entryObserver) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                entryObserver.unobserve(entry.target);
+            });
+        }, {
+            root: null,
+            threshold: 0.14,
+            rootMargin: '0px 0px -8% 0px'
+        });
+
+        revealTargets.forEach((target) => observer.observe(target));
+    };
+
+    initScrollReveal();
+
     // Delegate smooth scroll for internal anchors to avoid many listeners.
     document.addEventListener('click', (e) => {
         const link = e.target.closest('a[href^="#"]');
