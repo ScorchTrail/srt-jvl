@@ -1,0 +1,70 @@
+/* --- Service Card Block --- */
+.service-card {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card--large {
+    grid-column: span 1;
+}
+
+@media (min-width: 768px) {
+    .service-card--large {
+        grid-column: span 2;
+        grid-row: span 2;
+        flex-direction: row;
+    }
+    
+    .service-card--large .service-card__image {
+        width: 60%;
+    }
+    
+    .service-card--large .service-card__content {
+        width: 40%;
+        justify-content: flex-end;
+    }
+}
+
+.service-card__content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
+.service-card__image {
+    display: block;
+    width: 100%;
+    min-height: 240px;
+    object-fit: cover;
+}
+
+.service-card__image--video {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+}
+
+.service-card__title {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, calc(0.92rem + 0.35vw), 1.25rem);
+}
+
+.service-card__title--large {
+    font-size: clamp(1.5rem, calc(1.2rem + 1.25vw), 2rem);
+}
+
+.service-card__desc {
+    color: var(--color-text-muted);
+    font-size: clamp(0.75rem, calc(0.71rem + 0.12vw), 0.875rem);
+}
+
+.service-card__action {
+    margin-top: 16px;
+    align-self: flex-start;
+}
+

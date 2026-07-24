@@ -1,0 +1,28 @@
+/* --- Button Block --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: clamp(0.75rem, calc(0.71rem + 0.12vw), 1rem);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    border: none;
+}
+
+.btn--primary {
+    color: var(--color-dominant);
+    background-color: var(--color-brand-accent);
+    border-color: var(--color-brand-accent);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-brand-accent-soft);
+    border-color: var(--color-brand-accent-soft);
+}
+.btn--success { background-color: var(--color-brand-accent); color: var(--color-dominant); }
+.btn--outline { border: 1px solid var(--color-brand-primary); color: var(--color-brand-primary); }
+.btn--outline:hover { background-color: var(--color-bg-alt); }
+

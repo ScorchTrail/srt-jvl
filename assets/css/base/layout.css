@@ -1,0 +1,34 @@
+/* --- Layout Base Blocks --- */
+.container {
+    width: 100%;
+    max-width: var(--grid-max-width);
+    margin: 0 auto;
+    padding-inline: var(--grid-padding);
+}
+
+.section--padding {
+    padding: 32px 0 64px 0;
+}
+
+.hero__grid,
+.services-grid,
+.gallery-grid,
+.reviews-grid,
+.about-grid,
+.footer__grid,
+.form {
+    column-gap: var(--grid-gutter);
+}
+
+@media (min-width: 768px) {
+    .section--padding {
+        padding: 48px 0 72px 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section--padding {
+        padding: 64px 0 96px 0;
+    }
+}
+

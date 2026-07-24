@@ -1,0 +1,16 @@
+/* --- Badge Block --- */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 99px;
+    background-color: rgba(24, 71, 62, 0.1);
+    border: 1px solid rgba(24, 71, 62, 0.34);
+    font-size: clamp(0.625rem, calc(0.59rem + 0.12vw), 0.75rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-brand-primary);
+    margin-bottom: 24px;
+}
+

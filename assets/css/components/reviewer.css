@@ -1,0 +1,23 @@
+/* --- Reviewer Block --- */
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.reviewer__avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-brand-primary);
+    color: var(--color-brand-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+}
+
+.reviewer__name { font-size: clamp(0.875rem, calc(0.83rem + 0.12vw), 0.9375rem); }
+.reviewer__location { font-size: clamp(0.625rem, calc(0.59rem + 0.12vw), 0.75rem); color: var(--color-text-muted); }
+

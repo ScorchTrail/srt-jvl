@@ -1,0 +1,32 @@
+/* --- Placeholders (Blocks) --- */
+.placeholder-img {
+    background-color: rgba(24, 71, 62, 0.08);
+    border: 2px dashed rgba(28, 28, 28, 0.34);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(28, 28, 28, 0.78);
+    font-weight: 600;
+    font-size: clamp(0.75rem, calc(0.71rem + 0.12vw), 0.875rem);
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    border-radius: var(--radius-sm);
+}
+
+.placeholder-img--square { aspect-ratio: 1 / 1; }
+.placeholder-img--rounded-large { border-radius: var(--radius-lg); }
+
+.placeholder-icon {
+    background-color: rgba(28, 28, 28, 0.28);
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.placeholder-icon--star {
+    width: 16px;
+    height: 16px;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background-color: var(--color-brand-accent);
+}
+

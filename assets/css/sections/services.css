@@ -1,0 +1,14 @@
+/* --- Services Grid Block --- */
+.services-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto;
+    }
+}
+

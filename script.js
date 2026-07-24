@@ -200,6 +200,28 @@ document.addEventListener('DOMContentLoaded', () => {
         initAutoSwipeCarousel(carousel, itemSelector);
     });
 
+    const initImageFadeIn = () => {
+        const fadeImages = Array.from(document.querySelectorAll('img[data-fade-image]'));
+
+        fadeImages.forEach((image) => {
+            const markLoaded = () => {
+                image.classList.remove('media-image--loading');
+                image.classList.add('media-image--loaded');
+            };
+
+            if (image.complete) {
+                markLoaded();
+                return;
+            }
+
+            image.classList.add('media-image--loading');
+            image.addEventListener('load', markLoaded, { once: true });
+            image.addEventListener('error', markLoaded, { once: true });
+        });
+    };
+
+    initImageFadeIn();
+
     const initScrollReveal = () => {
         const revealTargets = [];
 
@@ -216,11 +238,10 @@ document.addEventListener('DOMContentLoaded', () => {
         addRevealTargets('.hero__content', 'left', 0);
         addRevealTargets('.hero__visual', 'right', 0);
         addRevealTargets('#services .section-header', 'up', 0);
-        addRevealTargets('.service-card', 'up', 80);
+        addRevealTargets('.service-card__content', 'up', 80);
         addRevealTargets('#quote .section-header', 'up', 0);
         addRevealTargets('#quote .form', 'up', 0);
         addRevealTargets('#gallery .section-header', 'up', 0);
-        addRevealTargets('.gallery-grid__item', 'up', 65);
         addRevealTargets('#reviews .section-header', 'up', 0);
         addRevealTargets('.review-card', 'up', 65);
         addRevealTargets('.about-grid > *', 'up', 80);

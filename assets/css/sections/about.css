@@ -1,0 +1,42 @@
+/* --- About Grid Block --- */
+.about-grid {
+    display: grid;
+    gap: 64px;
+    align-items: center;
+}
+
+#about.section--padding {
+    padding-bottom: 80px;
+}
+
+.about-grid > .placeholder-img {
+    height: auto;
+    min-height: 360px;
+}
+
+@media (min-width: 1024px) {
+    .about-grid { grid-template-columns: 1fr 1fr; }
+
+    #about.section--padding {
+        padding-bottom: 112px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .about-grid {
+        gap: 40px;
+    }
+
+    #about.section--padding {
+        padding-bottom: 88px;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-grid > .placeholder-img {
+        aspect-ratio: 1 / 1;
+        height: auto;
+        min-height: 0;
+    }
+}
+

@@ -1,0 +1,31 @@
+/* --- Section Header Block --- */
+.section-header {
+    margin-bottom: 64px;
+}
+
+.section-header--center {
+    text-align: center;
+}
+
+.section-header__subtitle {
+    font-size: clamp(0.5rem, calc(0.44rem + 0.2vw), 0.625rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--color-brand-accent);
+    margin-bottom: 16px;
+}
+
+.section-header__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.75rem, calc(1.2rem + 2.3vw), 2.5rem);
+    line-height: 1.2;
+}
+
+.section-header__desc {
+    color: var(--color-text-muted);
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
