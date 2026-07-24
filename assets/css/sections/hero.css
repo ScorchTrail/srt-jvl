@@ -103,15 +103,6 @@
         max-width: 36rem;
     }
 
-    .btn--outline {
-        border-color: var(--color-dominant);
-        color: var(--color-dominant);
-    }
-
-    .btn--outline:hover {
-        background-color: rgba(255, 255, 255, 0.16);
-    }
-
     .floating-review {
         display: none;
     }
