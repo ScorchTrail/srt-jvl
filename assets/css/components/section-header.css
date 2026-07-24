@@ -1,6 +1,7 @@
 /* --- Section Header Block --- */
 .section-header {
     margin-bottom: 64px;
+    text-align: center;
 }
 
 .section-header--center {

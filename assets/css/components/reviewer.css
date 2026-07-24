@@ -8,14 +8,16 @@
 .reviewer__avatar {
     width: 40px;
     height: 40px;
-    background-color: var(--color-brand-primary);
+    background-color: var(--color-dominant);
     color: var(--color-brand-accent);
+    border: 1px solid rgba(24, 71, 62, 0.18);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-display);
     font-weight: 700;
+    box-shadow: 0 8px 18px rgba(28, 28, 28, 0.08);
 }
 
 .reviewer__name { font-size: clamp(0.875rem, calc(0.83rem + 0.12vw), 0.9375rem); }

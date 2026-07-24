@@ -12,7 +12,6 @@ cat \
   "$ROOT_DIR/components/buttons.css" \
   "$ROOT_DIR/components/navbar.css" \
   "$ROOT_DIR/sections/hero.css" \
-  "$ROOT_DIR/components/badge.css" \
   "$ROOT_DIR/components/floating-review.css" \
   "$ROOT_DIR/components/section-header.css" \
   "$ROOT_DIR/sections/services.css" \
